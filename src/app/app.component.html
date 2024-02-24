@@ -1,2 +1,75 @@
 
-<h1 class="title" >Management System</h1>
+
+<div class="main_container">
+
+  <header class="topheader">
+    <div class="topheader_menu">
+      <button class="topheader_menu__button" (click)="toggleMenu()">
+        @if (!menuStatus()) {
+          <span class="material-symbols-outlined">menu_open</span>
+        } @else {
+          <span class="material-symbols-outlined">menu</span>
+        }
+      </button>
+      <h1 class="topheader_title" >Management System</h1>
+    </div>
+    <nav class="topheader_nav__right">
+      <p>login</p>
+    </nav>
+  </header>
+
+  <main class="content">
+    <!-- sidemenu -->
+    @if(!menuStatus()){
+      <div class="sidemenu">
+        <ul class="list_items">
+          <li class="items">
+            <a class="item_link" href="">
+              <span class="material-symbols-outlined">
+                move_item
+              </span>
+              Products
+            </a>
+          </li>
+          <li class="items">
+            <a class="item_link" href="">
+              <span class="material-symbols-outlined">
+                category
+              </span>
+              Categories
+            </a>
+          </li>
+          <li class="items">
+            <a class="item_link" href="">
+              <span class="material-symbols-outlined">
+                group
+              </span>
+              Users
+            </a>
+          </li>
+          <li class="items">
+            <a class="item_link" href="">
+              <span class="material-symbols-outlined">
+                shopping_cart
+              </span>
+              Carts
+            </a>
+          </li>
+          <li class="items">
+            <a class="item_link" href="">
+              <span class="material-symbols-outlined">
+                dashboard
+              </span>
+              Dashboard
+            </a>
+          </li>
+        </ul>
+      </div>
+    }
+     <!-- content -->
+     <div class="content_page">
+        <h1>Contenido por paginas</h1>
+       <router-outlet></router-outlet>
+     </div>
+  </main>
+</div>
