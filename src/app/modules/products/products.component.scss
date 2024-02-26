@@ -1,0 +1,52 @@
+.container {
+  height: 100%;
+  padding: 0.5rem;
+}
+
+.product_search {
+  height: 15%;
+  border-bottom: 1px solid var(--border-slate);
+}
+
+.product_content {
+  height: 85%;
+  overflow-y: scroll;
+}
+
+.table_content {
+  border: 1px solid rgb(92, 92, 92);
+  font-size: var(--text-sm);
+  width: 100%;
+}
+
+.table_head tr {
+  background-color: var(--border-slate);
+}
+
+.table_head th {
+  border: 1px solid rgb(160,160,160);
+  padding: 0.5rem;
+  font-weight: 500;
+
+}
+
+.table_body td {
+  border: 1px solid rgb(160,160,160);
+  vertical-align: middle;
+  padding: 0 1rem;
+}
+
+.table_body tr:hover {
+  background-color: var(--bg-slate-100);
+}
+
+.edit_icon,
+.details_icon {
+  color: var(--bg-slate-300);
+}
+
+.edit_icon:hover,
+.details_icon:hover {
+  color: var(--bg-slate-400);
+  cursor: pointer;
+}

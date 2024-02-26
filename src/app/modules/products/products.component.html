@@ -1,0 +1,54 @@
+
+<div class="container">
+
+  <div class="product_search">
+
+  </div>
+
+  <div class="product_content">
+    <table class="table_content">
+      <thead class="table_head">
+        <tr>
+          <th>Edit</th>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Rate</th>
+          <th>Count</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody class="table_body">
+        @for(item of products; track item.id){
+          <tr>
+            <td>
+              <span class="material-symbols-outlined edit_icon">
+                edit_square
+                </span>
+            </td>
+            <td>{{item.title}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.rating.rate}}</td>
+            <td>{{item.rating.count}}</td>
+            <td>
+              <span class="material-symbols-outlined details_icon">
+                find_in_page
+                </span>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+

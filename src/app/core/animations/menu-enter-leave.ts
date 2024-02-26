@@ -5,10 +5,10 @@ export const menuInOut = trigger('menuInOut',[
     style({
       transform: 'translateX(-100%)',
     }),
-    animate('300ms', style({ transform: 'translateX(0)'}))
+    animate('100ms', style({ transform: 'translateX(0)'}))
   ]),
 
   transition(':leave',[
-    animate('400ms', style({ transform: 'translateX(-100%)'}))
+    animate('150ms', style({ transform: 'translateX(-100%)'}))
   ])
 ]);

@@ -13,14 +13,12 @@
 
 .content_page {
   flex-grow: 1;
-  padding: 0.3rem;
 }
 
 .sidemenu {
   width: 40%;
-  border-right: 1px solid #b9b9b9;
+  border-right: 1px solid var(--border-slate);
   padding: 1rem 0.5rem;
-  overflow: hidden;
 }
 
 @media screen and (min-width: 768px) {
