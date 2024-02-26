@@ -1,0 +1,15 @@
+<header class="topheader">
+  <div class="topheader_menu">
+    <button class="topheader_menu__button" (click)="changeState()">
+      @if (!state) {
+        <span class="material-symbols-outlined">menu_open</span>
+      } @else {
+        <span class="material-symbols-outlined">menu</span>
+      }
+    </button>
+    <h1 class="topheader_title" >Management System</h1>
+  </div>
+  <nav class="topheader_nav__right">
+    <p>login</p>
+  </nav>
+</header>
