@@ -8,7 +8,7 @@
         <span class="material-symbols-outlined">
           search
           </span>
-        <input type="search" id="search" name="search" placeholder="Search products..." >
+        <input type="search" id="search" name="search" placeholder="Search a product..." [formControl]="search" >
       </div>
     </div>
     <button class="button_create">Create</button>
@@ -28,8 +28,8 @@
         </tr>
       </thead>
       <tbody class="table_body">
-        @for(item of products; track item.id){
-          <tr>
+        @for(item of filterProducts; track item.id){
+          <tr @itemInOut >
             <td>
               <span class="material-symbols-outlined edit_icon">
                 edit_square
