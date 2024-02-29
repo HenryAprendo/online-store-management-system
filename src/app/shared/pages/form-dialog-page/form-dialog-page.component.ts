@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output, Type, input } from '@angular/core';
-
-type Functionality = 'create' | 'edit';
+import { Functionality } from '../../../models/functionality';
 
 @Component({
   selector: 'app-form-dialog-page',
@@ -11,7 +10,7 @@ type Functionality = 'create' | 'edit';
 })
 export class FormDialogPageComponent {
 
-  @Input() showButton: Functionality = 'create';
+  @Input() behavior: Functionality = 'create';
 
   @Input() title: string = 'Producto';
 
