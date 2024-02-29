@@ -1,4 +1,4 @@
-<div class="main_container">
+<!-- <div class="main_container">
 
   <app-header-top
     [state]="menuStatus()"
@@ -6,16 +6,18 @@
   />
 
   <main class="content">
-    <!-- sidemenu -->
+
     @if(!menuStatus()){
       <div class="sidemenu" @menuInOut >
         <app-side-menu />
       </div>
     }
-     <!-- content -->
+
      <div class="content_page">
        <router-outlet></router-outlet>
      </div>
   </main>
 
-</div>
+</div> -->
+
+<app-form-dialog-page></app-form-dialog-page>

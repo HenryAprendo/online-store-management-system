@@ -1,0 +1,116 @@
+
+.container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: #909090;
+  opacity: 0.1;
+}
+
+.dialog {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 10%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dialog__header {
+  height: 4.8rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border-bottom: 0.01rem solid #e3e3e3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__btn--close {
+  background-color: var(--text-white);
+  border: transparent;
+  border: 1px solid #e3e3e3;
+  padding: 0;
+}
+
+.header__btn--close:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.header__btn--close:active {
+  transform: scale(0.9);
+}
+
+.dialog__main {
+  flex-grow: 1;
+  border: 1px solid #e3e3e3;
+  margin: 1rem 1rem;
+}
+
+.dialog__footer {
+  height: 4.8rem;
+  border-top: 0.01rem solid #e3e3e3;
+}
+
+.content__btn {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.btn__action {
+  margin-right: 1rem;
+  background-color: var(--text-white);
+  border: 1px solid #e3e3e3;
+  padding: 0.5rem;
+}
+
+.btn__submit {
+  margin-left: 1rem;
+  padding: 0.5rem;
+  border: transparent;
+  font-weight: 500;
+  color: var(--text-white);
+  background: rgb(50, 50, 255);
+}
+
+
+@media screen and (min-width: 768px) {
+  .dialog {
+    left: 30%;
+  }
+}
+
+
+@media screen and (min-width: 1024px) {
+  .dialog {
+    left: 70rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

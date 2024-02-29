@@ -1,0 +1,33 @@
+<div class="container">
+
+  <div class="backdrop" ></div>
+  <div class="dialog">
+    <!-- Encabezado de página -->
+    <header class="dialog__header">
+      <h1>{{title}}</h1>
+      <button class="header__btn--close" (click)="closeDialog()" >
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </header>
+
+    <!-- Contenido de formularios -->
+    <main class="dialog__main">
+
+    </main>
+
+    <!-- Botones de acción -->
+    <footer class="dialog__footer">
+      <div class="content__btn">
+        <div class="content__btn--left">
+          <button class="btn__action" (click)="closeDialog()" >Cancel</button>
+          <button class="btn__action" >Delete</button>
+        </div>
+        <div class="content__btn--right">
+          <button class="btn__submit">Create</button>
+          <button class="btn__submit">Apply changes</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
