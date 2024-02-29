@@ -20,11 +20,16 @@
       <div class="content__btn">
         <div class="content__btn--left">
           <button class="btn__action" (click)="closeDialog()" >Cancel</button>
-          <button class="btn__action" >Delete</button>
+          @if(showButton === 'edit'){
+            <button class="btn__action" >Delete</button>
+          }
         </div>
         <div class="content__btn--right">
-          <button class="btn__submit">Create</button>
-          <button class="btn__submit">Apply changes</button>
+          @if(showButton === 'edit'){
+            <button class="btn__submit">Apply changes</button>
+          } @else {
+            <button class="btn__submit">Create</button>
+          }
         </div>
       </div>
     </footer>
