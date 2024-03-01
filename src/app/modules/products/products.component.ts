@@ -1,11 +1,15 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
-import { ProductService } from '../../services/product.service';
-import { Product } from '../../models/product.model';
+import { Component, OnInit, Signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule ,FormControl } from '@angular/forms';
+import { ReactiveFormsModule, FormControl } from '@angular/forms';
+
+import { Product } from '../../models/product.model';
+import { Action } from '../../models/actions';
+
 import { itemInOut } from '../../core/animations/item-enter-leave';
-import { Functionality } from '../../models/functionality';
 import { FormDialogPageComponent } from '../../shared/pages/form-dialog-page/form-dialog-page.component';
+
+import { ProductService } from '../../services/product.service';
+import { DialogService } from '../../services/dialog.service';
 
 @Component({
   selector: 'app-products',
@@ -17,6 +21,8 @@ import { FormDialogPageComponent } from '../../shared/pages/form-dialog-page/for
 })
 export class ProductsComponent implements OnInit {
 
+  private dialogService = inject(DialogService);
+
   private productService = inject(ProductService);
 
   products: Product[] = [];
@@ -25,8 +31,9 @@ export class ProductsComponent implements OnInit {
 
   search = new FormControl();
 
-  functionality!:Functionality;
-  boxDialog = signal(false);
+  action:Signal<Action> = this.dialogService.action;
+
+  state:Signal<boolean> = this.dialogService.state;
 
   ngOnInit(): void {
     this.productService.findAll()
@@ -47,18 +54,16 @@ export class ProductsComponent implements OnInit {
 
   }
 
-  toggleBoxDialog(){
-    this.boxDialog.update(value => !value);
+  closeDialog(){
+    this.dialogService.closeDialogBox();
   }
 
-  createFormFn(){
-    this.functionality = 'create';
-    this.toggleBoxDialog();
+  createForm(){
+    this.dialogService.handleCreate();
   }
 
-  editFormFn(){
-    this.functionality = 'edit';
-    this.toggleBoxDialog();
+  editForm(){
+    this.dialogService.handleEdit();
   }
 
 

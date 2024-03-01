@@ -11,7 +11,7 @@
         <input type="search" id="search" name="search" placeholder="Search a product..." [formControl]="search" >
       </div>
     </div>
-    <button class="button_create" (click)="createFormFn()" >Create</button>
+    <button class="button_create" (click)="createForm()" >Create</button>
   </div>
 
   <div class="product_content">
@@ -31,7 +31,7 @@
         @for(item of filterProducts; track item.id){
           <tr @itemInOut >
             <td>
-              <span class="material-symbols-outlined edit_icon" (click)="editFormFn()" >
+              <span class="material-symbols-outlined edit_icon" (click)="editForm()" >
                 edit_square
                 </span>
             </td>
@@ -53,8 +53,8 @@
 </div>
 
 
-@if(boxDialog()){
-  <app-form-dialog-page [behavior]="functionality" (close)="toggleBoxDialog()" >
+@if(state()){
+  <app-form-dialog-page [behavior]="action()" (close)="closeDialog()" >
   </app-form-dialog-page>
 }
 
