@@ -2,14 +2,14 @@ import { Component, OnInit, Signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 
-import { Product } from '../../models/product.model';
-import { Action } from '../../models/actions';
+import { Product } from '../../../../models/product.model';
+import { Action } from '../../../../models/actions';
 
-import { itemInOut } from '../../core/animations/item-enter-leave';
-import { FormDialogPageComponent } from '../../shared/pages/form-dialog-page/form-dialog-page.component';
+import { itemInOut } from '../../../../core/animations/item-enter-leave';
+import { FormDialogPageComponent } from '../../../../shared/pages/form-dialog-page/form-dialog-page.component';
 
-import { ProductService } from '../../services/product.service';
-import { DialogService } from '../../services/dialog.service';
+import { ProductService } from '../../../../services/product.service';
+import { DialogService } from '../../../../services/dialog.service';
 
 @Component({
   selector: 'app-products',
