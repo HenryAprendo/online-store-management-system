@@ -11,10 +11,12 @@ import { FormDialogPageComponent } from '../../../../shared/pages/form-dialog-pa
 import { ProductService } from '../../../../services/product.service';
 import { DialogService } from '../../../../services/dialog.service';
 
+import { ProductFormComponent } from './../../components/product-form/product-form.component';
+
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule, FormDialogPageComponent],
+  imports: [CommonModule,ReactiveFormsModule, FormDialogPageComponent, ProductFormComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
   animations: [itemInOut]

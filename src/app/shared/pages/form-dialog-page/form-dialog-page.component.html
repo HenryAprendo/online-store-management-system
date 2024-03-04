@@ -12,7 +12,7 @@
 
     <!-- Contenido de formularios -->
     <main class="dialog__main">
-
+      <ng-content></ng-content>
     </main>
 
     <!-- Botones de acción -->
@@ -21,14 +21,14 @@
         <div class="content__btn--left">
           <button class="btn__action" (click)="closeDialog()" >Cancel</button>
           @if(behavior === 'edit'){
-            <button class="btn__action" >Delete</button>
+            <button class="btn__action" (click)="delete()" >Delete</button>
           }
         </div>
         <div class="content__btn--right">
           @if(behavior === 'edit'){
-            <button class="btn__submit">Apply changes</button>
+            <button type="button" class="btn__submit" (click)="update()" >Apply changes</button>
           } @else {
-            <button class="btn__submit">Create</button>
+            <button type="button" class="btn__submit" (click)="save()" >Create</button>
           }
         </div>
       </div>

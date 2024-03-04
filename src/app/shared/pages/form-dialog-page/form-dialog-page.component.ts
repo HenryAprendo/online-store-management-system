@@ -1,7 +1,9 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, ContentChild, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Action } from '../../../models/actions';
 import { dialogInOut } from '../../../core/animations/dialog';
-import { CommonModule } from '@angular/common';
+import { ProductFormComponent } from '../../../modules/product/components/product-form/product-form.component';
+import { UserFormComponent } from '../../../modules/user/components/user-form/user-form.component';
 
 @Component({
   selector: 'app-form-dialog-page',
@@ -19,8 +21,26 @@ export class FormDialogPageComponent {
 
   @Output() close = new EventEmitter();
 
+  @ContentChild('cmp') form!: ProductFormComponent | UserFormComponent;
+
   closeDialog(){
     this.close.emit();
   }
 
+  save(){
+    this.form.save();
+  }
+
+  update(){
+    this.form.update();
+  }
+
+  delete(){
+    this.form.delete();
+  }
+
 }
+
+
+
+

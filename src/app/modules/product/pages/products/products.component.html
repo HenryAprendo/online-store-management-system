@@ -55,6 +55,7 @@
 
 @if(state()){
   <app-form-dialog-page [behavior]="action()" (close)="closeDialog()" >
+    <app-product-form #cmp />
   </app-form-dialog-page>
 }
 
