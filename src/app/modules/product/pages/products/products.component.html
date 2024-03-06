@@ -31,7 +31,7 @@
         @for(item of filterProducts; track item.id){
           <tr @itemInOut >
             <td>
-              <span class="material-symbols-outlined edit_icon" (click)="editForm()" >
+              <span class="material-symbols-outlined edit_icon" (click)="editForm(item.id)" >
                 edit_square
                 </span>
             </td>

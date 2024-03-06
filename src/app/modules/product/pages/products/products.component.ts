@@ -10,6 +10,7 @@ import { FormDialogPageComponent } from '../../../../shared/pages/form-dialog-pa
 
 import { ProductService } from '../../../../services/product.service';
 import { DialogService } from '../../../../services/dialog.service';
+import { UniqueIdService } from '../../../../services/unique-id.service';
 
 import { ProductFormComponent } from './../../components/product-form/product-form.component';
 
@@ -26,6 +27,8 @@ export class ProductsComponent implements OnInit {
   private dialogService = inject(DialogService);
 
   private productService = inject(ProductService);
+
+  private uniqueIdService = inject(UniqueIdService);
 
   products: Product[] = [];
 
@@ -64,7 +67,8 @@ export class ProductsComponent implements OnInit {
     this.dialogService.handleCreate();
   }
 
-  editForm(){
+  editForm(id:number){
+    this.uniqueIdService.emitId(id);
     this.dialogService.handleEdit();
   }
 

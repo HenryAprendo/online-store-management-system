@@ -1,7 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ReactiveFormsModule, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { HttpBasic } from '../../../../models/http-form.model';
+import { UniqueIdService } from '../../../../services/unique-id.service';
+import { ProductService } from '../../../../services/product.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-form',
@@ -10,14 +13,27 @@ import { HttpBasic } from '../../../../models/http-form.model';
   templateUrl: './product-form.component.html',
   styleUrl: './product-form.component.scss'
 })
-export class ProductFormComponent implements HttpBasic {
+export class ProductFormComponent implements HttpBasic, OnInit, OnDestroy {
 
   private fb = inject(FormBuilder);
 
+  private uniqueIdService = inject(UniqueIdService);
+
+  private productService = inject(ProductService);
+
   form!:FormGroup;
+
+  private subscribeGetId!: Subscription;
 
   constructor(){
     this.form = this.buildForm();
+  }
+
+  ngOnInit(): void {
+    this.subscribeGetId = this.uniqueIdService.getId()
+      .subscribe(id => {
+        this.productService.findOne(id).subscribe(data => console.log(data));
+      });
   }
 
   buildForm(){
@@ -41,6 +57,11 @@ export class ProductFormComponent implements HttpBasic {
   delete(): void {
     throw new Error('Method not implemented.');
   }
+
+  ngOnDestroy(): void {
+    this.subscribeGetId.unsubscribe();
+  }
+
 }
 
 

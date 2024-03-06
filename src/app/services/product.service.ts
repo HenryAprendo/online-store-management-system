@@ -18,6 +18,10 @@ export class ProductService {
     return this.http.get<Product[]>(this.apiUrl);
   }
 
+  findOne(id:number): Observable<Product> {
+    return this.http.get<Product>(`${this.apiUrl}/${id}`);
+  }
+
   save(data:CreateProductDto): Observable<Product> {
     return this.http.post<Product>(this.apiUrl,data);
   }
@@ -31,3 +35,10 @@ export class ProductService {
   }
 
 }
+
+
+
+
+
+
+
