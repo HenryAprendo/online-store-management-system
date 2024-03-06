@@ -61,6 +61,7 @@ export class ProductsComponent implements OnInit {
 
   closeDialog(){
     this.dialogService.closeDialogBox();
+    this.uniqueIdService.restart();
   }
 
   createForm(){

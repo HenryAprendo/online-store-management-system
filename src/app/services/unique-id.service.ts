@@ -22,4 +22,8 @@ export class UniqueIdService {
     return this.id$;
   }
 
+  restart(){
+     this.emitId(this.initVal);
+  }
+
 }

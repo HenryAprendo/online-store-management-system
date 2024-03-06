@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { HttpBasic } from '../../../../models/http-form.model';
 import { UniqueIdService } from '../../../../services/unique-id.service';
 import { ProductService } from '../../../../services/product.service';
+import { CategoryService } from '../../../../services/category.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -21,9 +22,15 @@ export class ProductFormComponent implements HttpBasic, OnInit, OnDestroy {
 
   private productService = inject(ProductService);
 
+  private categoryService = inject(CategoryService);
+
   form!:FormGroup;
 
   private subscribeGetId!: Subscription;
+
+  private productId = signal(0);
+
+  categories: string[] = [];
 
   constructor(){
     this.form = this.buildForm();
@@ -31,12 +38,34 @@ export class ProductFormComponent implements HttpBasic, OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscribeGetId = this.uniqueIdService.getId()
-      .subscribe(id => {
-        this.productService.findOne(id).subscribe(data => console.log(data));
+      .subscribe(id => this.productId.set(id));
+
+    if(this.productId() >= 0){
+      this.initForm();
+    }
+
+    this.categoryService.findAll()
+      .subscribe(dta => {
+        this.categories = dta;
+      });
+
+  }
+
+  private initForm(){
+    const id = this.productId();
+    this.productService.findOne(id)
+      .subscribe(dta => {
+        this.form.setValue({
+          title: dta.title,
+          price: dta.price,
+          description: dta.description,
+          image: dta.image,
+          category: dta.category
+        });
       });
   }
 
-  buildForm(){
+  private buildForm(){
     return this.fb.group({
       title: ['',[Validators.required]],
       price: [0,[Validators.required]],
