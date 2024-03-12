@@ -51,6 +51,28 @@ export class ProductFormComponent implements HttpBasic, OnInit, OnDestroy {
 
   }
 
+  proccessForm(){
+
+    if(this.form.valid){
+
+      const data = this.form.value;
+      const id = this.productId();
+
+      if(this.productId() >= 0){
+        // Actualizar
+        this.productService.update(id,data)
+          .subscribe(console.log);
+      } else {
+        this.productService.save(data)
+          .subscribe(console.log);
+      }
+
+    } else {
+      this.form.markAllAsTouched();
+    }
+
+  }
+
   private initForm(){
     const id = this.productId();
     this.productService.findOne(id)
