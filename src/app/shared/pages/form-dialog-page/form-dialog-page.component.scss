@@ -54,13 +54,13 @@
 
 .dialog__main {
   flex-grow: 1;
-  border: 1px solid #e3e3e3;
+  border: 1px solid var(--border-dialog-input);
   margin: 1rem 1rem;
 }
 
 .dialog__footer {
   height: 4.8rem;
-  border-top: 0.01rem solid #e3e3e3;
+  border-top: 0.01rem solid var(--border-dialog-input);
 }
 
 .content__btn {
@@ -74,7 +74,7 @@
 .btn__action {
   margin-right: 1rem;
   background-color: var(--text-white);
-  border: 1px solid #e3e3e3;
+  border: 1px solid var(--border-dialog-input);
   padding: 0.5rem;
 }
 

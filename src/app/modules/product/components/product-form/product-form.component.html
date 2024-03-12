@@ -1,29 +1,29 @@
 
-<form [formGroup]="form" (ngSubmit)="proccessForm()">
+<form [formGroup]="form" (ngSubmit)="proccessForm()" class="form_container">
 
-  <section>
-    <div>
-      <label for="title">Title</label>
-      <input type="text" id="title" name="title" formControlName="title" >
+  <section class="content">
+    <div class="content_box">
+      <label class="box_label" for="title">Title</label>
+      <input class="box_input" type="text" id="title" name="title" formControlName="title" >
     </div>
-    <div>
-      <label for="price">Price</label>
-      <input type="number" id="price" name="price" formControlName="price" >
-    </div>
-
-    <div>
-      <label for="description">Description</label>
-      <input type="text" id="description" name="description" formControlName="description" >
+    <div class="content_box" >
+      <label class="box_label" for="price">Price</label>
+      <input class="box_input" type="number" id="price" name="price" formControlName="price" >
     </div>
 
-    <div>
-      <label for="photo">Image</label>
-      <input type="text" id="image" name="image" formControlName="image" >
+    <div class="content_box" >
+      <label class="box_label" for="description">Description</label>
+      <textarea class="box_input" id="description" name="description" formControlName="description" ></textarea>
     </div>
 
-    <div>
-      <label for="category">Category</label>
-      <select name="category" id="category" formControlName="category" >
+    <div class="content_box" >
+      <label class="box_label" for="photo">Image</label>
+      <input class="box_input" type="text" id="image" name="image" formControlName="image" >
+    </div>
+
+    <div class="content_box" >
+      <label class="box_label" for="category">Category</label>
+      <select class="box_input" name="category" id="category" formControlName="category" >
         @for (category of categories; track $index) {
           <option [value]="category">{{category.toUpperCase()}}</option>
         }
