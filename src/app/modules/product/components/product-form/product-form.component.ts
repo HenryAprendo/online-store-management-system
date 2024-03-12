@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { HttpBasic } from '../../../../models/http-form.model';
 import { UniqueIdService } from '../../../../services/unique-id.service';
@@ -32,6 +32,8 @@ export class ProductFormComponent implements HttpBasic, OnInit, OnDestroy {
 
   categories: string[] = [];
 
+  @ViewChild('trigger') btnTrigger!: ElementRef<HTMLButtonElement>;
+
   constructor(){
     this.form = this.buildForm();
   }
@@ -61,10 +63,15 @@ export class ProductFormComponent implements HttpBasic, OnInit, OnDestroy {
       if(this.productId() >= 0){
         // Actualizar
         this.productService.update(id,data)
-          .subscribe(console.log);
+          .subscribe(dta => {
+            console.log(dta);
+          });
       } else {
+        // Crear
         this.productService.save(data)
-          .subscribe(console.log);
+          .subscribe(dta => {
+            console.log(dta);
+          });
       }
 
     } else {
@@ -98,15 +105,15 @@ export class ProductFormComponent implements HttpBasic, OnInit, OnDestroy {
   }
 
   save(){
-    console.log('Crear un producto');
+    this.btnTrigger.nativeElement.click();
   }
 
   update(): void {
-    throw new Error('Method not implemented.');
+    this.btnTrigger.nativeElement.click();
   }
 
   delete(): void {
-    throw new Error('Method not implemented.');
+    this.productService.delete(this.productId()).subscribe(console.log)
   }
 
   ngOnDestroy(): void {
@@ -114,8 +121,3 @@ export class ProductFormComponent implements HttpBasic, OnInit, OnDestroy {
   }
 
 }
-
-
-
-
-
