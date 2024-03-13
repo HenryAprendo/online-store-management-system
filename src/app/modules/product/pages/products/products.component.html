@@ -41,7 +41,7 @@
             <td>{{item.rating.rate}}</td>
             <td>{{item.rating.count}}</td>
             <td>
-              <span class="material-symbols-outlined details_icon">
+              <span class="material-symbols-outlined details_icon" [routerLink]="['./details', item.id]" >
                 find_in_page
                 </span>
             </td>

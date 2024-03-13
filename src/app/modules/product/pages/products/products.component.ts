@@ -13,11 +13,13 @@ import { DialogService } from '../../../../services/dialog.service';
 import { UniqueIdService } from '../../../../services/unique-id.service';
 
 import { ProductFormComponent } from './../../components/product-form/product-form.component';
+import { RouterLink } from '@angular/router';
+import { filter, map } from 'rxjs';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule, FormDialogPageComponent, ProductFormComponent],
+  imports: [CommonModule,ReactiveFormsModule, FormDialogPageComponent, ProductFormComponent, RouterLink],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
   animations: [itemInOut]

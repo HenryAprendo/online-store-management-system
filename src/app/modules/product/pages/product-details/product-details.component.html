@@ -1,0 +1,18 @@
+
+<div class="container" >
+  @if(product) {
+    <div class="product_content">
+      <h2>{{product.title}}</h2>
+      <div>
+        <img width="200" [src]="product.image" [alt]="product.title">
+      </div>
+      <div>
+        <p>Description: {{product.description}}</p>
+        <p>Precio: {{product.price}}</p>
+        <p>Categoria: {{product.category}}</p>
+        <p>Cantidad: {{product.rating.count}}</p>
+        <p>Tasa: {{product.rating.rate}}</p>
+      </div>
+    </div>
+  }
+</div>
