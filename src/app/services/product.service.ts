@@ -1,7 +1,8 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CreateProductDto, Product, UpdateProductDto } from '../models/product.model';
-import { Observable } from 'rxjs';
+import { Observable, catchError, retry, throwError } from 'rxjs';
+import { HttpStatusCode } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,19 @@ export class ProductService {
   constructor() { }
 
   findAll(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+    return this.http.get<Product[]>(this.apiUrl)
+      .pipe(
+        retry(3),
+        catchError((error:HttpErrorResponse) => {
+          if(error.status ===  HttpStatusCode.NotFound){
+            return throwError(() => new Error('The server could not find the requested content'))
+          } else if (error.status === HttpStatusCode.Unauthorized) {
+            return throwError(() => new Error('Authentication is required to obtain the requested response'))
+          } else {
+            return throwError(() => new Error('Oops an error has ocurred'));
+          }
+        })
+      )
   }
 
   findOne(id:number): Observable<Product> {

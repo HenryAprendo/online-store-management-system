@@ -50,7 +50,7 @@ export class ProductsComponent implements OnInit {
           this.filterProducts = [...this.products];
         },
         error: (error:Error) => {
-          console.log(error);
+          console.log(error.name);
         }
       });
 

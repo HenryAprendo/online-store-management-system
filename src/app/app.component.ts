@@ -6,6 +6,7 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { menuInOut } from './core/animations/menu-enter-leave';
 
 import { FormDialogPageComponent } from './shared/pages/form-dialog-page/form-dialog-page.component';
+import { Observable, Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -25,3 +26,38 @@ export class AppComponent {
 
 
 }
+
+// Observables
+const observable = new Observable((subscriber: Subscriber<number> ) => {
+  subscriber.next(1);
+  subscriber.next(2);
+  subscriber.next(3);
+  subscriber.complete();
+})
+
+const observer = {
+  next: (value:number) => console.log(value),
+  error: (err:Error) => console.log('Error ocurred'),
+  complete: () => console.log('Done')
+}
+
+observable.subscribe(observer)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
