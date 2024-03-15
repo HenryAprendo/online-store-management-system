@@ -1,7 +1,11 @@
 
 <div class="container" >
-  <button class="btn_back" >Back</button>
   @if(product) {
+    <button class="btn_back" (click)="goToBack()" >
+      <span class="material-symbols-outlined">arrow_back</span>
+      Back
+    </button>
+
     <div class="product_content">
       <h2 class="content_title">{{product.title}}</h2>
       <section class="content_details">
@@ -19,9 +23,8 @@
               <span>{{product.price | currency}}</span>
             </p>
             <p>
-              Quantity available:
+              Units available:
               <span>{{product.rating.count}}</span>
-              units
             </p>
             <p>
               Rate:

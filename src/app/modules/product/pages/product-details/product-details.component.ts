@@ -1,18 +1,22 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { of, switchMap, tap, zipWith } from 'rxjs';
+import { switchMap } from 'rxjs';
 import { ProductService } from '../../../../services/product.service';
 import { Product } from '../../../../models/product.model';
-import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'
 })
 export class ProductDetailsComponent implements OnInit {
+
+  private router = inject(Router);
 
   private route = inject(ActivatedRoute);
 
@@ -37,4 +41,20 @@ export class ProductDetailsComponent implements OnInit {
 
   }
 
+  goToBack() {
+    this.router.navigate(['../']);
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
