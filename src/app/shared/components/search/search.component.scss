@@ -1,0 +1,21 @@
+.search label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.search_content {
+  border: 1px dashed var(--bg-slate-400);
+  width: 30rem;
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.search_content input {
+  width: 100%;
+  border: transparent;
+  background: var(--bg-slate-100);
+  outline: none;
+  padding: 0.5rem 1rem;
+}

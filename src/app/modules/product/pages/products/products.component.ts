@@ -1,6 +1,5 @@
 import { Component, OnInit, Signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormControl } from '@angular/forms';
 
 import { Product } from '../../../../models/product.model';
 import { Action } from '../../../../models/actions';
@@ -14,12 +13,15 @@ import { UniqueIdService } from '../../../../services/unique-id.service';
 
 import { ProductFormComponent } from './../../components/product-form/product-form.component';
 import { RouterLink } from '@angular/router';
-import { filter, map } from 'rxjs';
+import { SearchComponent } from '../../../../shared/components/search/search.component';
+import { BtnCreateComponent } from '../../../../shared/components/btn-create/btn-create.component';
+import { SearchContentComponent } from '../../../../shared/components/search-content/search-content.component';
+
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule, FormDialogPageComponent, ProductFormComponent, RouterLink],
+  imports: [CommonModule, FormDialogPageComponent, ProductFormComponent, RouterLink, SearchComponent, BtnCreateComponent, SearchContentComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
   animations: [itemInOut]
@@ -35,8 +37,6 @@ export class ProductsComponent implements OnInit {
   products: Product[] = [];
 
   filterProducts:Product[] = [];
-
-  search = new FormControl();
 
   action:Signal<Action> = this.dialogService.action;
 
@@ -54,11 +54,10 @@ export class ProductsComponent implements OnInit {
         }
       });
 
-    this.search.valueChanges
-      .subscribe((text:string) => {
-        this.filterProducts = this.products.filter(item => item.title.toLowerCase().includes(text.toLowerCase()));
-      });
+  }
 
+  filterList(text:string){
+    this.filterProducts = this.products.filter(item => item.title.toLowerCase().includes(text.toLowerCase()));
   }
 
   closeDialog(){

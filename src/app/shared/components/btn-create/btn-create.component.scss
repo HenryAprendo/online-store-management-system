@@ -1,0 +1,13 @@
+.button_create {
+  border: transparent;
+  border-radius: 0.2rem;
+  padding: 0.5rem 1rem;
+  color: var(--text-white);
+  font-weight: 600;
+  background: var(--btn-normal-blue);
+}
+
+.button_create:hover {
+  background: var(--btn-hover-blue);
+  cursor: pointer;
+}
