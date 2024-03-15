@@ -1,18 +1,39 @@
 
 <div class="container" >
+  <button class="btn_back" >Back</button>
   @if(product) {
     <div class="product_content">
-      <h2>{{product.title}}</h2>
-      <div>
-        <img width="200" [src]="product.image" [alt]="product.title">
-      </div>
-      <div>
-        <p>Description: {{product.description}}</p>
-        <p>Precio: {{product.price}}</p>
-        <p>Categoria: {{product.category}}</p>
-        <p>Cantidad: {{product.rating.count}}</p>
-        <p>Tasa: {{product.rating.rate}}</p>
-      </div>
+      <h2 class="content_title">{{product.title}}</h2>
+      <section class="content_details">
+        <figure class="box_img">
+          <img class="img" [src]="product.image" [alt]="product.title">
+        </figure>
+        <div class="details_info">
+          <div class="details_description">
+            <h3>Description:</h3>
+            <p>{{product.description}}</p>
+          </div>
+          <div class="details_info">
+            <p>
+              Price by unit:
+              <span>{{product.price | currency}}</span>
+            </p>
+            <p>
+              Quantity available:
+              <span>{{product.rating.count}}</span>
+              units
+            </p>
+            <p>
+              Rate:
+              <span>{{product.rating.rate}}</span>
+            </p>
+            <p>
+              Category:
+              <span>{{product.category}}</span>
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   }
 </div>
