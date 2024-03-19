@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { HttpBasic } from '../../../../models/http-form.model';
 
 @Component({
@@ -9,7 +9,6 @@ import { HttpBasic } from '../../../../models/http-form.model';
   styleUrl: './user-form.component.scss'
 })
 export class UserFormComponent implements HttpBasic {
-
 
 
   save(): void {

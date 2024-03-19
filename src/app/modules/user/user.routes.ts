@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router";
 import { UserLayoutComponent } from "./components/user-layout/user-layout.component";
-import { UserFormComponent } from "./components/user-form/user-form.component";
+import { UsersComponent } from "./pages/users/users.component";
 
 export const userRoutes: Routes = [
   {
@@ -9,7 +9,7 @@ export const userRoutes: Routes = [
     children: [
       {
         path: '',
-        component: UserFormComponent
+        component: UsersComponent
       }
     ]
   }

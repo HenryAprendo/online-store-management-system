@@ -1,0 +1,30 @@
+.container {
+  height: 100%;
+  padding: 0.5rem;
+}
+
+.user_content {
+  height: 85%;
+  overflow-y: scroll;
+}
+
+td {
+  border: 1px solid rgb(160,160,160);
+  vertical-align: middle;
+  padding: 0 1rem;
+}
+
+tr:hover {
+  background-color: var(--bg-slate-100);
+}
+
+.edit_icon,
+.details_icon {
+  color: var(--bg-slate-300);
+}
+
+.edit_icon:hover,
+.details_icon:hover {
+  color: var(--bg-slate-400);
+  cursor: pointer;
+}
