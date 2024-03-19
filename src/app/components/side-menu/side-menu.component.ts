@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ItemLinkComponent } from '../item-link/item-link.component';
-import { Link } from '../../models/link';
+import { Link } from '../../models/link.model';
 import { CommonModule } from '@angular/common';
 
 const linkList:Link[] = [

@@ -1,5 +1,5 @@
 import { Injectable, WritableSignal, computed, signal } from '@angular/core';
-import { Action } from '../models/actions';
+import { Action } from '../models/actions.model';
 
 @Injectable({
   providedIn: 'root'

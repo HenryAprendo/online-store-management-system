@@ -2,6 +2,7 @@
 
   <app-search-content>
     <app-search (inputText)="filterList($event)" />
+    <app-btn-create (createEv)="createForm()" />
   </app-search-content>
 
   <div class="user_content">
@@ -9,7 +10,7 @@
       @for(user of filterUser; track user.id){
         <tr @itemInOut >
           <td>
-            <span class="material-symbols-outlined edit_icon">
+            <span class="material-symbols-outlined edit_icon" (click)="editForm(user.id)" >
               edit_square
             </span>
           </td>
@@ -29,3 +30,11 @@
     </app-table-content>
   </div>
 </div>
+
+@if(state()){
+  <app-form-dialog-page [behavior]="action()" (close)="closeDialog()" >
+    <app-user-form #cmp />
+  </app-form-dialog-page>
+}
+
+

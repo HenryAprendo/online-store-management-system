@@ -2,7 +2,7 @@ import { Component, OnInit, Signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { Product } from '../../../../models/product.model';
-import { Action } from '../../../../models/actions';
+import { Action } from '../../../../models/actions.model';
 
 import { itemInOut } from '../../../../core/animations/item-enter-leave';
 import { FormDialogPageComponent } from '../../../../shared/pages/form-dialog-page/form-dialog-page.component';
@@ -17,6 +17,7 @@ import { SearchComponent } from '../../../../shared/components/search/search.com
 import { BtnCreateComponent } from '../../../../shared/components/btn-create/btn-create.component';
 import { SearchContentComponent } from '../../../../shared/components/search-content/search-content.component';
 import { TableContentComponent } from '../../../../shared/components/table-content/table-content.component';
+import { DialogHandle } from '../../../../shared/interfaces/dialog-handle';
 
 
 @Component({
@@ -27,7 +28,7 @@ import { TableContentComponent } from '../../../../shared/components/table-conte
   styleUrl: './products.component.scss',
   animations: [itemInOut]
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, DialogHandle {
 
   private dialogService = inject(DialogService);
 
@@ -77,11 +78,5 @@ export class ProductsComponent implements OnInit {
     this.dialogService.handleEdit();
   }
 
-
-
 }
-
-
-
-
 

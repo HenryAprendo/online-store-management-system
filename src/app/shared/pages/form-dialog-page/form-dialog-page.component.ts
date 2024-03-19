@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ContentChild, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
-import { Action } from '../../../models/actions';
+import { Action } from '../../../models/actions.model';
 import { dialogInOut } from '../../../core/animations/dialog';
 import { ProductFormComponent } from '../../../modules/product/components/product-form/product-form.component';
 import { UserFormComponent } from '../../../modules/user/components/user-form/user-form.component';
