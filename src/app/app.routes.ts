@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { UserFormComponent } from './modules/user/components/user-form/user-form.component';
 
 export const routes: Routes = [
   {
@@ -13,6 +12,6 @@ export const routes: Routes = [
   },
   {
     path: 'users',
-    component: UserFormComponent
+    loadChildren: () => import('./modules/user/user.routes').then(m => m.userRoutes)
   }
 ];
