@@ -16,12 +16,13 @@ import { RouterLink } from '@angular/router';
 import { SearchComponent } from '../../../../shared/components/search/search.component';
 import { BtnCreateComponent } from '../../../../shared/components/btn-create/btn-create.component';
 import { SearchContentComponent } from '../../../../shared/components/search-content/search-content.component';
+import { TableContentComponent } from '../../../../shared/components/table-content/table-content.component';
 
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, FormDialogPageComponent, ProductFormComponent, RouterLink, SearchComponent, BtnCreateComponent, SearchContentComponent],
+  imports: [CommonModule, FormDialogPageComponent, ProductFormComponent, RouterLink, SearchComponent, BtnCreateComponent, SearchContentComponent, TableContentComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
   animations: [itemInOut]
@@ -33,6 +34,8 @@ export class ProductsComponent implements OnInit {
   private productService = inject(ProductService);
 
   private uniqueIdService = inject(UniqueIdService);
+
+  columnsTitle: string[] = ['Edit','Title','Price','Category','Rate','Count','Details'];
 
   products: Product[] = [];
 

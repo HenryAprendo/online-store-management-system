@@ -1,0 +1,12 @@
+<table class="table_content">
+  <thead class="table_head">
+    <tr>
+      @for(name of columnsName; track $index){
+        <th>{{name}}</th>
+      }
+    </tr>
+  </thead>
+  <tbody class="table_body">
+    <ng-content></ng-content>
+  </tbody>
+</table>

@@ -7,40 +7,30 @@
   </app-search-content>
 
   <div class="product_content">
-    <table class="table_content">
-      <thead class="table_head">
-        <tr>
-          <th>Edit</th>
-          <th>Title</th>
-          <th>Price</th>
-          <th>Category</th>
-          <th>Rate</th>
-          <th>Count</th>
-          <th>Details</th>
+
+    <app-table-content [columnsName]="columnsTitle" >
+
+      @for(item of filterProducts; track item.id){
+        <tr @itemInOut >
+          <td>
+            <span class="material-symbols-outlined edit_icon" (click)="editForm(item.id)" >
+              edit_square
+              </span>
+          </td>
+          <td>{{item.title}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.category}}</td>
+          <td>{{item.rating.rate}}</td>
+          <td>{{item.rating.count}}</td>
+          <td>
+            <span class="material-symbols-outlined details_icon" [routerLink]="['./details', item.id]" >
+              find_in_page
+              </span>
+          </td>
         </tr>
-      </thead>
-      <tbody class="table_body">
-        @for(item of filterProducts; track item.id){
-          <tr @itemInOut >
-            <td>
-              <span class="material-symbols-outlined edit_icon" (click)="editForm(item.id)" >
-                edit_square
-                </span>
-            </td>
-            <td>{{item.title}}</td>
-            <td>{{item.price}}</td>
-            <td>{{item.category}}</td>
-            <td>{{item.rating.rate}}</td>
-            <td>{{item.rating.count}}</td>
-            <td>
-              <span class="material-symbols-outlined details_icon" [routerLink]="['./details', item.id]" >
-                find_in_page
-                </span>
-            </td>
-          </tr>
-        }
-      </tbody>
-    </table>
+      }
+
+    </app-table-content>
   </div>
 </div>
 
